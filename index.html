@@ -85,6 +85,10 @@ main{padding:24px 0 70px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .card{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.13)}
 .card h3{margin:0 0 8px;font-size:18px} .card p{margin:0;color:var(--muted)}
+.doc-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.doc-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid var(--line);border-radius:11px;padding:8px 11px;font-size:12px;font-weight:850;background:rgba(255,255,255,.055);color:#dce8f4}
+.doc-actions a:first-child{background:#eef4fb;color:#0b1420}
+.doc-actions a:hover{border-color:rgba(87,199,255,.5)}
 .big{font-size:30px;font-weight:900;letter-spacing:-.04em;margin:4px 0}
 .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03)}
 table{width:100%;border-collapse:collapse;min-width:720px}
@@ -143,6 +147,7 @@ table a{color:#8bd8ff;text-decoration:none}
   <button class="tab" data-page="bookings">Bookings</button>
   <button class="tab" data-page="hotels">Hotels & costs</button>
   <button class="tab" data-page="shopping">Shopping</button>
+  <button class="tab" data-page="documents">Documents</button>
   <button class="tab" data-page="rules">Trip rules</button>
   <button class="tab" data-page="sources">Verified info</button>
 </nav></div>
@@ -912,6 +917,37 @@ table a{color:#8bd8ff;text-decoration:none}
   </div>
 </section>
 
+<section id="documents" class="page">
+  <div class="toolbar"><h2>Travel documents</h2></div>
+  <div class="alert"><strong>Personal documents:</strong> these files contain traveler names and booking references. This site is public, so share its address carefully.</div>
+  <div class="cards">
+    <div class="card">
+      <div class="date">Tokyo · Hotel</div>
+      <h3>HOTEL TAVINOS Asakusa</h3>
+      <p>Original accommodation booking document.</p>
+      <div class="doc-actions"><a href="documents/tokyo-hotel-tavinos-booking.pdf" target="_blank" rel="noopener">Open PDF ↗</a><a href="documents/tokyo-hotel-tavinos-booking.pdf" download>Download</a></div>
+    </div>
+    <div class="card">
+      <div class="date">Osaka · Hotel</div>
+      <h3>WELLSTAY Namba</h3>
+      <p>Original accommodation booking confirmation.</p>
+      <div class="doc-actions"><a href="documents/osaka-wellstay-namba-booking.pdf" target="_blank" rel="noopener">Open PDF ↗</a><a href="documents/osaka-wellstay-namba-booking.pdf" download>Download</a></div>
+    </div>
+    <div class="card">
+      <div class="date">Tokyo · Car rental</div>
+      <h3>IX Rental</h3>
+      <p>Original vehicle booking details.</p>
+      <div class="doc-actions"><a href="documents/ix-rental-booking.pdf" target="_blank" rel="noopener">Open PDF ↗</a><a href="documents/ix-rental-booking.pdf" download>Download</a></div>
+    </div>
+    <div class="card">
+      <div class="date">Kyoto · Activity</div>
+      <h3>Hozugawa River Boat</h3>
+      <p>Original reservation voucher and visitor instructions.</p>
+      <div class="doc-actions"><a href="documents/hozugawa-river-boat-voucher.pdf" target="_blank" rel="noopener">Open PDF ↗</a><a href="documents/hozugawa-river-boat-voucher.pdf" download>Download</a></div>
+    </div>
+  </div>
+</section>
+
 <section id="rules" class="page">
   <div class="toolbar"><h2>Trip operating rules</h2></div>
   <div class="cards">
@@ -935,7 +971,7 @@ table a{color:#8bd8ff;text-decoration:none}
 </main>
 
 <footer class="footer"><div class="shell">
-  Japan Trip 2026 · Jayasurya · Group of 6 · Detailed HTML v9 · itinerary basis: Master v8 / Group v7 · Shinkansen status updated Sep 24, 2026.
+  Japan Trip 2026 · Jayasurya · Group of 6 · Detailed HTML v9 · itinerary basis: Master v8 / Group v7 · booking documents added Sep 24, 2026.
 </div></footer>
 
 <script>
