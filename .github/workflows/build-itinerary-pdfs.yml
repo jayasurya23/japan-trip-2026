@@ -1,0 +1,33 @@
+name: Build itinerary PDFs
+on:
+  push:
+    paths:
+      - '.pdfchunks/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild PDFs from chunks
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f .pdfchunks/master_00 && -f .pdfchunks/master_01 && -f .pdfchunks/master_02 ]]; then
+            cat .pdfchunks/master_00 .pdfchunks/master_01 .pdfchunks/master_02 | base64 -d > documents/japan-trip-master-v10.pdf
+          fi
+          if [[ -f .pdfchunks/eslead_00 && -f .pdfchunks/eslead_01 && -f .pdfchunks/eslead_02 && -f .pdfchunks/eslead_03 ]]; then
+            cat .pdfchunks/eslead_00 .pdfchunks/eslead_01 .pdfchunks/eslead_02 .pdfchunks/eslead_03 | base64 -d > documents/osaka-eslead-namba-ebisu-west-booking.pdf
+          fi
+      - name: Commit rebuilt PDFs
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add documents/japan-trip-master-v10.pdf documents/osaka-eslead-namba-ebisu-west-booking.pdf 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Add updated itinerary PDFs"
+            git push
+          fi
