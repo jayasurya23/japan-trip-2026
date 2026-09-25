@@ -15,8 +15,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -f .pdfchunks/master_00 && -f .pdfchunks/master_01 && -f .pdfchunks/master_patch && -f .pdfchunks/master_02 ]]; then
-            cat .pdfchunks/master_00 .pdfchunks/master_01 .pdfchunks/master_patch .pdfchunks/master_02 | base64 -d > documents/japan-trip-master-v10.pdf
+          if [[ -f .pdfchunks/master_00 && -f .pdfchunks/master_01 && -f .pdfchunks/master_patch && -f .pdfchunks/master_02 && -f .pdfchunks/master_tail ]]; then
+            cat .pdfchunks/master_00 .pdfchunks/master_01 .pdfchunks/master_patch .pdfchunks/master_02 .pdfchunks/master_tail | base64 -d > documents/japan-trip-master-v10.pdf
           fi
           if [[ -f .pdfchunks/eslead_00 && -f .pdfchunks/eslead_01 && -f .pdfchunks/eslead_02 && -f .pdfchunks/eslead_03 ]]; then
             cat .pdfchunks/eslead_00 .pdfchunks/eslead_01 .pdfchunks/eslead_02 .pdfchunks/eslead_03 | base64 -d > documents/osaka-eslead-namba-ebisu-west-booking.pdf
